@@ -10,7 +10,7 @@ Upon activating your control panel you will have several options within a prompt
 
 ## What I learned
 
-<todo>
+Reading and parsing plain text files to store within different Java classes.
 
 ### Technologies Used
 
