@@ -50,32 +50,12 @@ public final class JetsApplication {
 					double range = Double.parseDouble(split[3]);
 					int cost = Integer.parseInt(split[4]);
 
-					addJet(type, model, speed, range, cost);
+					airfield.addJet(type, model, speed, range, cost);
 				} catch (Exception e) {
 					System.out.println(filename + " error line " + lineN + ": " + e);
 				}
 			}
 		}
-	}
-
-	private void addJet(String type, String model, double speed, double range, int cost) throws IOException {
-		Jet jet;
-
-		switch (type) {
-		case "passenger":
-			jet = new PassengerJet(model, speed, range, cost);
-			break;
-		case "fighter":
-			jet = new FighterJet(model, speed, range, cost);
-			break;
-		case "trainer":
-			jet = new TrainerJet(model, speed, range, cost);
-			break;
-		default:
-			throw new IOException("unknown type: " + type);
-		}
-
-		airfield.getJets().add(jet);
 	}
 
 	private void displayUserMenu() {
@@ -260,16 +240,44 @@ public final class JetsApplication {
 			int cost = in.nextInt();
 			in.nextLine();
 
-			addJet(type, model, speed, range, cost);
+			airfield.addJet(type, model, speed, range, cost);
 		} catch (Exception e) {
 			System.out.println("There was a problem adding your jet");
 			e.printStackTrace();
-			
+
 			in.nextLine(); // consume remaining input
 		}
 	}
 
 	private void removeJet() {
+		listFleet();
+
+		try {
+			while (true) {
+				System.out.println("Type the index of a jet to delete it, or type \"back\" to cancel.");
+				System.out.print("> ");
+
+				String input = in.nextLine();
+
+				if ("back".equalsIgnoreCase(input)) {
+					return;
+				}
+
+				int index = Integer.parseInt(input);
+
+				if (index < 0 || index >= airfield.getJets().size()) {
+					System.out.println("That jet doesn't exist. Try again.");
+					continue; // go back to parsing input.
+				}
+
+				Jet removed = airfield.getJets().remove(index);
+				System.out.println(removed.getModel() + " has been decommissioned.");
+				
+				return; // exit method (breaks out of while loop)
+			}
+		} catch (Exception e) {
+			System.out.println("Invalid input. Deletion cancelled.");
+		}
 	}
 
 }

@@ -9,7 +9,7 @@ public class TrainerJet extends Jet implements Trainer {
 
 	@Override
 	public void train() {
-		System.out.println("Training " + model + "...");
+		System.out.println("Training " + getModel() + "...");
 	}
 
 }

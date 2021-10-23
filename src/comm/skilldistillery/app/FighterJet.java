@@ -8,7 +8,7 @@ public class FighterJet extends Jet implements Fighter {
 	
 	@Override
 	public void fight() {
-		System.out.println("Fighting " + model + "...");
+		System.out.println("Fighting " + getModel() + "...");
 	}
 
 }

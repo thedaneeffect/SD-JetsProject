@@ -2,7 +2,7 @@ package comm.skilldistillery.app;
 
 public abstract class Jet {
 
-	protected String model;
+	private String model;
 	private double speed; // in mph
 	private double range; // in miles
 	private int cost; // in 1 USD
