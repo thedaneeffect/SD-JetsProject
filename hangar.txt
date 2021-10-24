@@ -1,6 +1,6 @@
 #type,model,speed,range,cost
 passenger,Boeing 717,504,2371,22500000
-fighter,F-15E Strike Eagle,1875,3500,87700000
+fighter,F-15E Strike Eagle,1875,3500,31100000
 fighter,F-16 Fighting Falcon,1534,2622,18000000
 fighter,F-69 Glass Cannon,3500,1200,420420420
 trainer,T-38 Talon,858,1093,756000
