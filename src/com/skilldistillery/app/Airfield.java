@@ -1,4 +1,4 @@
-package comm.skilldistillery.app;
+package com.skilldistillery.app;
 
 import java.io.IOException;
 import java.util.ArrayList;

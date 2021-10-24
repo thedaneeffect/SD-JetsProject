@@ -1,4 +1,4 @@
-package comm.skilldistillery.app;
+package com.skilldistillery.app;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

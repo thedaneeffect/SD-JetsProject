@@ -1,4 +1,4 @@
-package comm.skilldistillery.app;
+package com.skilldistillery.app;
 
 public class FighterJet extends Jet implements Fighter {
 

@@ -1,4 +1,4 @@
-package comm.skilldistillery.app;
+package com.skilldistillery.app;
 
 public class TrainerJet extends Jet implements Trainer {
 	

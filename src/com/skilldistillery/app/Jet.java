@@ -1,4 +1,4 @@
-package comm.skilldistillery.app;
+package com.skilldistillery.app;
 
 public abstract class Jet {
 
