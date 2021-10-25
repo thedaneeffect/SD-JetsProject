@@ -1,4 +1,7 @@
-package com.skilldistillery.app;
+package com.skilldistillery.app.impl;
+
+import com.skilldistillery.app.model.Fighter;
+import com.skilldistillery.app.model.Jet;
 
 public class FighterJet extends Jet implements Fighter {
 

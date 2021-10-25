@@ -7,6 +7,10 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.Set;
 
+import com.skilldistillery.app.model.Fighter;
+import com.skilldistillery.app.model.Jet;
+import com.skilldistillery.app.model.Trainer;
+
 public final class JetsApplication {
 
 	public static void main(String[] args) throws FileNotFoundException, IOException {
@@ -84,28 +88,28 @@ public final class JetsApplication {
 
 				switch (option) {
 				case 1:
-					listFleet();
+					airfield.listFleet();
 					break;
 				case 2:
-					flyAllJets();
+					airfield.flyAllJets();
 					break;
 				case 3:
-					printFastestJet();
+					System.out.println("Fastest jet: " + airfield.getFastestJet());
 					break;
 				case 4:
-					printLongestRangeJet();
+					System.out.println("Longest range jet: " + airfield.getLongestRangedJet());
 					break;
 				case 5:
-					trainAllTrainers();
+					airfield.trainAllTrainers();
 					break;
 				case 6:
-					dogfight();
+					airfield.dogfight();
 					break;
 				case 7:
-					addJet();
+					openAddJetInput();
 					break;
 				case 8:
-					removeJet();
+					openRemoveJetInput();
 					break;
 				case 0: // Quit
 					return; // returns our method, effectively leaving the while loop.
@@ -120,69 +124,7 @@ public final class JetsApplication {
 		}
 	}
 
-	private void listFleet() {
-		final String tblFormat = "%-4s%-24s%-16s%-16s%-16s%n";
-
-		System.out.format(tblFormat, "ID", "Model", "Speed (mph)", "Range (mi)", "Cost (USD)");
-
-		int index = 0;
-		for (Jet jet : airfield.getJets()) {
-			System.out.format(tblFormat, index, jet.getModel(), jet.getSpeed(), jet.getRange(), jet.getCost());
-			index++;
-		}
-	}
-
-	private void flyAllJets() {
-		for (Jet jet : airfield.getJets()) {
-			jet.fly();
-		}
-	}
-
-	private void printFastestJet() {
-		Jet fastest = null;
-		for (Jet jet : airfield.getJets()) {
-			if (fastest == null || jet.getSpeed() > fastest.getSpeed()) {
-				fastest = jet;
-			}
-		}
-		if (fastest == null) {
-			System.out.println("There are no jets!");
-		} else {
-			System.out.println(fastest);
-		}
-	}
-
-	private void printLongestRangeJet() {
-		Jet longest = null;
-		for (Jet jet : airfield.getJets()) {
-			if (longest == null || jet.getRange() > longest.getRange()) {
-				longest = jet;
-			}
-		}
-		if (longest == null) {
-			System.out.println("There are no jets!");
-		} else {
-			System.out.println(longest);
-		}
-	}
-
-	private void trainAllTrainers() {
-		for (Jet jet : airfield.getJets()) {
-			if (jet instanceof Trainer) {
-				((Trainer) jet).train();
-			}
-		}
-	}
-
-	private void dogfight() {
-		for (Jet jet : airfield.getJets()) {
-			if (jet instanceof Fighter) {
-				((Fighter) jet).fight();
-			}
-		}
-	}
-
-	private void addJet() {
+	private void openAddJetInput() {
 		int kind;
 		String type = "undefined";
 
@@ -249,8 +191,8 @@ public final class JetsApplication {
 		}
 	}
 
-	private void removeJet() {
-		listFleet();
+	private void openRemoveJetInput() {
+		airfield.listFleet();
 
 		try {
 			while (true) {
