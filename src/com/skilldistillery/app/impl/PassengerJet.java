@@ -4,8 +4,8 @@ import com.skilldistillery.app.model.Jet;
 
 public class PassengerJet extends Jet {
 
-	public PassengerJet(String model, double speedMPH, double rangeMiles, int price) {
-		super(model, speedMPH, rangeMiles, price);
+	public PassengerJet(String model, double speed, double range, int price) {
+		super(model, speed, range, price);
 	}
 	
 	

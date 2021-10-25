@@ -5,9 +5,8 @@ import com.skilldistillery.app.model.Trainer;
 
 public class TrainerJet extends Jet implements Trainer {
 	
-	public TrainerJet(String model, double speedMPH, double rangeMiles, int cost) {
-		super(model, speedMPH, rangeMiles, cost);
-		// TODO Auto-generated constructor stub
+	public TrainerJet(String model, double speed, double range, int cost) {
+		super(model, speed, range, cost);
 	}
 
 	@Override
